@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iAi 2026 | Organograma Único</title>
+    <title>iAi 2026 | Organograma Estrategico</title>
+    <meta name="description" content="Organograma Estrategico iAi 2026 - Modelo corporativo bio-tecnologico com orquestracao de demandas, crivo NH2CDi e revisao humana tripla.">
+    <meta name="theme-color" content="#030014">
+    <meta property="og:title" content="iAi 2026 | Organograma Estrategico">
+    <meta property="og:description" content="Poster executivo do ecossistema iAi - Estrutura organizacional como corpo vivo tecnologico.">
+    <meta property="og:type" content="website">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -44,13 +49,14 @@
 
         /* Orchestra Flow Animations */
         @keyframes flow-down {
-            0% { top: -16px; opacity: 0; }
+            0% { transform: translateY(-16px); opacity: 0; }
             20% { opacity: 1; }
             80% { opacity: 1; }
-            100% { top: calc(100% + 16px); opacity: 0; }
+            100% { transform: translateY(calc(100% + 16px)); opacity: 0; }
         }
         .animate-flow-down {
             animation: flow-down 2s infinite ease-in-out;
+            will-change: transform, opacity;
         }
 
         @keyframes shimmer {
@@ -78,13 +84,14 @@
         }
 
         @keyframes scan {
-            0% { top: -2px; opacity: 0; }
+            0% { transform: translateY(-2px); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
+            100% { transform: translateY(100vh); opacity: 0; }
         }
         .animate-scan {
             animation: scan 3s infinite ease-in-out;
+            will-change: transform, opacity;
         }
 
         /* Scrollbar hide */
