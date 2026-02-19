@@ -1,11 +1,12 @@
 
 import React, { useState } from 'react';
-import { 
-  Cpu, ShieldCheck, Megaphone, Settings, Activity, Database, Users, Briefcase, 
-  Gavel, TrendingUp, FileText, Globe, Zap, CheckCircle2, Clock, ArrowDown, 
-  User, Brain, Layers, Heart, X, Scroll, Sun, Moon, Eye, Info, Compass, 
-  Target, Gem, Anchor, Wind, Flame, Star, Mountain, TreePine, 
-  Infinity, Atom, Sprout, ClipboardList, Trophy, GraduationCap, 
+import OrchestraFlow from './OrchestraFlow';
+import {
+  Cpu, ShieldCheck, Megaphone, Settings, Activity, Database, Users, Briefcase,
+  Gavel, TrendingUp, FileText, Globe, Zap, CheckCircle2, Clock, ArrowDown,
+  User, Brain, Layers, Heart, X, Scroll, Sun, Moon, Eye, Info, Compass,
+  Target, Gem, Anchor, Wind, Flame, Star, Mountain, TreePine,
+  Infinity, Atom, Sprout, ClipboardList, Trophy, GraduationCap,
   Crosshair, Search, Sparkles, Sparkle, Rocket, Music, Leaf, Medal,
   Coins, Calculator, HardHat, BookOpen, MapPin, Languages, Shapes,
   ClipboardCheck, Building2, Workflow, Filter, Beaker
@@ -618,6 +619,24 @@ const App: React.FC = () => {
   const [isBobModalOpen, setIsBobModalOpen] = useState(false);
   const [isGrimorioOpen, setIsGrimorioOpen] = useState(false);
   const [isSuporteOpen, setIsSuporteOpen] = useState(false);
+  const [activeView, setActiveView] = useState<'organograma' | 'orchestra'>('organograma');
+
+  if (activeView === 'orchestra') {
+    return (
+      <div className="relative">
+        {/* Nav button back */}
+        <div className="fixed top-6 right-6 z-[300] flex gap-3">
+          <button
+            onClick={() => setActiveView('organograma')}
+            className="px-5 py-2.5 rounded-full glass border-white/20 hover:border-violet-500/50 transition-all text-[10px] font-black text-white uppercase tracking-[0.2em] flex items-center gap-2 shadow-lg hover:shadow-violet-500/20"
+          >
+            <ArrowDown size={12} className="rotate-90" /> Organograma
+          </button>
+        </div>
+        <OrchestraFlow />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#030014] text-gray-200 pb-24 overflow-x-hidden relative">
@@ -626,6 +645,16 @@ const App: React.FC = () => {
       <BobCiprianoModal isOpen={isBobModalOpen} onClose={() => setIsBobModalOpen(false)} />
       <GrimorioModal isOpen={isGrimorioOpen} onClose={() => setIsGrimorioOpen(false)} />
       <SuporteHubModal isOpen={isSuporteOpen} onClose={() => setIsSuporteOpen(false)} />
+
+      {/* Nav to Orchestra */}
+      <div className="fixed top-6 right-6 z-[300]">
+        <button
+          onClick={() => setActiveView('orchestra')}
+          className="px-5 py-2.5 rounded-full glass border-violet-500/30 hover:border-violet-500/60 transition-all text-[10px] font-black text-violet-300 uppercase tracking-[0.2em] flex items-center gap-2 shadow-lg hover:shadow-violet-500/20 bg-black/60"
+        >
+          <Workflow size={14} /> Orchestra Flow
+        </button>
+      </div>
 
       <div className="max-w-[1300px] mx-auto px-8 relative">
         <Header />
